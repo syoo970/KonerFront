@@ -1,14 +1,18 @@
 import "../styles/globals.css";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Navigation from "../components/Navigation";
+import { DefaultNav } from "../components/Navigation/NavLists";
 
 function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   return (
-    <RecoilRoot>
-      <QueryClientProvider queryClient={QueryClient}>
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <Navigation {...DefaultNav} />
         <Component {...pageProps} />
-      </QueryClientProvider>
-    </RecoilRoot>
+      </RecoilRoot>
+    </QueryClientProvider>
   );
 }
 

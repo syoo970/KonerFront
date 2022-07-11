@@ -1,3 +1,14 @@
+import KonerGlobalStyle from "../styles/konerGlobalStyle";
+
+export const decorators = [
+  (Story) => (
+    <>
+      <KonerGlobalStyle />
+      <Story />
+    </>
+  ),
+];
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +17,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};

@@ -34,7 +34,9 @@ export const NavItem = styled.div`
       case true:
         return css`
           a {
-            color: #ffc107;
+            div {
+              color: #ffc107 !important;
+            }
           }
           border-bottom: 1px solid #ffc107;
           transition: all 0.3s linear;

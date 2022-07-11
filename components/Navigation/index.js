@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { loginStatus } from "../../recoil/Authentication";
 import * as S from "./Navigation.style";
+import Text from "../Text";
 
 const Navigation = ({ lists, isLogoInclude, isAuth, authList }) => {
   const isLogined = useRecoilValue(loginStatus);
@@ -25,7 +26,9 @@ const Navigation = ({ lists, isLogoInclude, isAuth, authList }) => {
         {lists.map((list) => (
           <S.NavItem key={list.dest} isActive={active === list.dest}>
             <Link href={list.dest}>
-              <a>{list.title}</a>
+              <a>
+                <Text>{list.title}</Text>
+              </a>
             </Link>
           </S.NavItem>
         ))}
@@ -35,7 +38,9 @@ const Navigation = ({ lists, isLogoInclude, isAuth, authList }) => {
           authList[isLogined ? "AUTHSUCCESS" : "AUTHFAIL"].map((list) => (
             <S.NavItem key={list.dest} isActive={active === list.dest}>
               <Link href={list.dest}>
-                <a>{list.title}</a>
+                <a>
+                  <Text>{list.title}</Text>
+                </a>
               </Link>
             </S.NavItem>
           ))}

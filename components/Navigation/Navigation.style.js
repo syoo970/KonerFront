@@ -53,4 +53,11 @@ export const NavItem = styled.div`
   a {
     text-decoration: none;
   }
+  &:hover {
+    a {
+      div {
+        color: #ffc107;
+      }
+    }
+  }
 `;

@@ -6,7 +6,9 @@ export const InputContainer = styled.div`
   gap: 5px;
 `;
 
-export const InputWrapper = styled.div``;
+export const InputWrapper = styled.div`
+  display: flex;
+`;
 
 export const Input = styled.input`
   width: 100%;

@@ -7,7 +7,7 @@ import Input from "../Input";
 import Button from "../Button";
 import * as S from "./Login.style";
 
-const Login = ({ fontSize }) => {
+const Login = ({ fontSize, errorFontSize }) => {
   const {
     register,
     handleSubmit,
@@ -21,13 +21,13 @@ const Login = ({ fontSize }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleLogin)}>
+    <S.LoginForm onSubmit={handleSubmit(handleLogin)}>
       <S.LoginInputWrapper>
         <Text fontSize={fontSize}>이메일</Text>
         <Input
           {...register("email", { required: "이메일을 입력해 주세요" })}
           errors={errors?.email?.message}
-          errorFontSize={fontSize}
+          errorFontSize={errorFontSize}
         />
       </S.LoginInputWrapper>
       <S.LoginInputWrapper>
@@ -35,21 +35,24 @@ const Login = ({ fontSize }) => {
         <Input
           {...register("password", { required: "비밀번호를 입력해 주세요" })}
           errors={errors?.password?.message}
-          errorFontSize={fontSize}
+          errorFontSize={errorFontSize}
           type="password"
         />
       </S.LoginInputWrapper>
+      <S.Spacer marginTop="1rem" />
       <Button type="submit" text="로그인" btnColor="koner" color="white" />
-    </form>
+    </S.LoginForm>
   );
 };
 
 Login.propTypes = {
   fontSize: PropTypes.string,
+  errorFontSize: PropTypes.string,
 };
 
 Login.defaultProps = {
   fontSize: "1.5rem",
+  errorFontSize: "0.8rem",
 };
 
 export default Login;

@@ -28,7 +28,7 @@ const Input = forwardRef(function Input(
     height,
     border: `1px solid ${borderColor}`,
     color: textColor,
-    display: `${useFileUpload ? "none" : "block"}`,
+    display: `${useFileUpload ? "none" : "flex"}`,
     ...wrapperStyle,
   };
 

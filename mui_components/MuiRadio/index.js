@@ -9,13 +9,13 @@ import {
 import PropTypes from "prop-types";
 
 const MuiRadio = React.forwardRef(
-  ({ horizontal, title, data, fontSize, ...props }, ref) => {
+  ({ horizontal, title, data, fontSize, defaultValue, ...props }, ref) => {
     return (
       <FormControl>
         <FormLabel id={`${title}-radio`}>{title}</FormLabel>
         <RadioGroup
           aria-labelledby={`${title}-radio`}
-          defaultValue={data[0]?.value}
+          defaultValue={defaultValue || data[0]?.value}
           row={horizontal}
         >
           {data.map(({ id, value, label, disabled }) => (
@@ -48,6 +48,7 @@ MuiRadio.propTypes = {
   title: PropTypes.string,
   data: PropTypes.array,
   fontSize: PropTypes.number,
+  defaultValue: PropTypes.string,
 };
 
 MuiRadio.defaultProps = {
@@ -55,6 +56,7 @@ MuiRadio.defaultProps = {
   title: "",
   data: [],
   fontSize: 14,
+  defaultValue: undefined,
 };
 
 export default MuiRadio;

@@ -33,15 +33,13 @@ const MuiInput = React.forwardRef(
         ref={ref}
         helperText={errorMessage}
         multiline={isMultiLine}
-        InputProps={
-          useAdornment && {
-            [adornment]: (
-              <InputAdornment position={adornmentPosition}>
-                {children}
-              </InputAdornment>
-            ),
-          }
-        }
+        InputProps={{
+          [adornment]: useAdornment ? (
+            <InputAdornment position={adornmentPosition}>
+              {children}
+            </InputAdornment>
+          ) : null,
+        }}
       />
     );
   }
@@ -63,7 +61,7 @@ MuiInput.propTypes = {
 MuiInput.defaultProps = {
   label: "default label",
   variant: "outlined",
-  defaultValue: "",
+  defaultValue: undefined,
   disabled: false,
   isError: false,
   isMultiLine: false,
